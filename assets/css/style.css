@@ -1,0 +1,32 @@
+
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+    font-size: 62.5%
+}
+body {
+    background-color: #b1d1c4 !important;
+}
+/* .navbar{
+    background-color: orangered !important;
+} */
+
+#navbar{
+    background-color: orangered !important;
+}
+#current-weather-div{
+    size: 10 px;
+
+}
+
+#day-container0, #day-container1, #day-container2, #day-container3, #day-container4 {
+    justify-content: center !important;
+
+}
