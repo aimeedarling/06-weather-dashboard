@@ -74,7 +74,7 @@ $(function () {
         const fiveDayContainer = $('#five-day-div')
         console.log(data)
         for (let i = 0; i < data.list.length; i+=8) {
-            let dayContainer = $('<div id="day-container[i]>')
+            let dayContainer = $('<div id="day-container[i]">')
             let date = $('<p>').text(`Date: ${dayjs.unix(data.list[i].dt).format("MM-DD-YY")}`);
             let icon = $('<img>').attr('src', `https://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png`);
             let temp = $('<p>').text(`Temp: ${data.list[i].main.temp}`);

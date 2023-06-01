@@ -19,7 +19,7 @@ body {
 } */
 
 #navbar{
-    background-color: orangered !important;
+    background-color: #7c2f08 !important;
 }
 #current-weather-div{
     size: 10 px;
@@ -27,6 +27,7 @@ body {
 }
 
 #day-container0, #day-container1, #day-container2, #day-container3, #day-container4 {
+    display:flex !important;
     justify-content: center !important;
 
 }
