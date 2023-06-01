@@ -18,11 +18,12 @@ body {
     background-color: orangered !important;
 } */
 
-#navbarNav{
+#navbar{
     background-color: #54577C !important;
+    color:
 }
 #current-weather-div{
-    size: 10 px;
+    size: 140 px;
 
 }
 
