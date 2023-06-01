@@ -14,13 +14,14 @@ html {
 body {
     background-color: #FAFFD8 !important;
 }
-/* .navbar{
-    background-color: orangered !important;
-} */
 
 #navbar{
     background-color: #54577C !important;
-    color:
+    color: #ECFFB0 !important;
+}
+
+navbar-brand {
+    color: #ECFFB0 !important;
 }
 #current-weather-div{
     size: 140 px;
@@ -29,6 +30,6 @@ body {
 
 #day-container0, #day-container1, #day-container2, #day-container3, #day-container4 {
     display:flex !important;
-    justify-content: center !important;
+    justify-content: space-between !important;
 
 }
