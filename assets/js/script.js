@@ -50,6 +50,7 @@ $(function () {
         e.preventDefault()
         userSearch = $('#input-search').val()
         handleNewSearch(userSearch)
+        $('#input-search').val('')
 
     });
 
