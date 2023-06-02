@@ -59,7 +59,8 @@ $(function () {
 
     const resultsContainer = $('#current-weather-div')
     function renderWeather(weather) {
-        let city = $('<h2>').text(`City: ${weather.name}`);
+        let title = $('<h2 id="title">').text(`Current Weather`);
+        let city = $('<h3 id="city">').text(`City: ${weather.name}`);
         let date = $('<p>').text(`Date: ${dayjs.unix(weather.dt).format("MM-DD-YY")}`);
         let icon = $('<img>').attr('src', `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`);
         let temp = $('<p>').text(`Temp: ${weather.main.temp}`);
@@ -68,10 +69,12 @@ $(function () {
 
         // Append the elements to a container in the HTML
         resultsContainer.empty()
-        resultsContainer.append(city, date, icon, temp, humidity, windSpeed)
+        resultsContainer.append(title, city, icon, date, temp, humidity, windSpeed)
+        
     }
 
     function renderFiveDay(data) {
+        let title = $('<h2>').text(`Five Day Forecast`)
         const fiveDayContainer = $('#five-day-div')
         console.log(data)
         for (let i = 0; i < data.list.length; i+=8) {
@@ -82,8 +85,8 @@ $(function () {
             let humidity = $('<p>').text(`Humidity: ${data.list[i].main.humidity}`);
             let windSpeed = $('<p>').text(`Windspeed: ${data.list[i].wind.speed}`);
 
-            dayContainer.append(date, icon, temp, humidity, windSpeed)
-            fiveDayContainer.append(dayContainer)
+            dayContainer.append(icon, date, temp, humidity, windSpeed)
+            fiveDayContainer.append(title, dayContainer)
             
         }
 
