@@ -76,7 +76,7 @@ $(function () {
     function renderFiveDay(data) {
         let title = $('<h2>').text(`Five Day Forecast`)
         const fiveDayContainer = $('#five-day-div')
-
+        console.log(data)
         // Check if the title has already been added
         if (fiveDayContainer.children('h2').length === 0) {
             let title = $('<h2>').text('Five Day Forecast');
@@ -85,7 +85,7 @@ $(function () {
 
         for (let i = 0; i < data.list.length; i+=8) {
             let dayContainer = $('<div>').attr('id', 'day-container' + i)
-            let date = $('<p>').text(`Date: ${dayjs.unix(data.list[i].dt).format("MM-DD-YY")}`);
+            let date = $('<p>').text(`Date: ${dayjs.unix(data.list[i].dt).format("dddd-MM-DD-YY")}`);
             let icon = $('<img>').attr('src', `https://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png`);
             let temp = $('<p>').text(`Temp: ${data.list[i].main.temp}`);
             let humidity = $('<p>').text(`Humidity: ${data.list[i].main.humidity}`);

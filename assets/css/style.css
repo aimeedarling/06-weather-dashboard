@@ -83,16 +83,16 @@ img {
 }
 
 #day-container0,
-#day-container1,
-#day-container2,
-#day-container3,
-#day-container4 {
+#day-container8,
+#day-container16,
+#day-container24,
+#day-container32{
     /* display: flex !important;
     justify-content: space-between !important;
 } */
 
-#day-container[i]{
-display: flex !important;
+
+    display: flex !important;
+    flex-direction: row;
     justify-content: space-between !important;
-}
 }
