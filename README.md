@@ -29,7 +29,6 @@ Provide instructions and examples for use. Include screenshots as needed.
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
 <img width="1193" alt="screenshot" src="https://github.com/aimeedarling/weather-dashboard/assets/127796444/4d16a214-404c-40bc-b43d-60f15eb7bbaa">
-    ```
 
 ## Credits
 
