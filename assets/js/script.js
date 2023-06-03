@@ -3,16 +3,16 @@ $(function () {
 
     let userSearch = $('#input-search').val();
     $('#input-search').val('')
-    
+
     let searches = JSON.parse(localStorage.getItem('searches') || '[]');
-    
+
     function handleNewSearch(userSearch) {
         searches.push(userSearch)
         let updatedSearches = JSON.stringify(searches)
         localStorage.setItem('searches', updatedSearches);
         const ulEl = $('.search-history')
         ulEl.empty()
-        
+
         if (searches.length > 10) {
             searches = searches.slice(-10)
         }
@@ -34,16 +34,16 @@ $(function () {
                     console.log(data)
                     renderFiveDay(data)
                 })
-                .then(()=>{
+                .then(() => {
                     fetch(urlCurrent)
-                    .then(function (resp){
-                        return resp.json()
-                    })
-                    .then(function(data) {
-                        console.log(data)
-                        renderWeather(data)
-                    })
-                }) 
+                        .then(function (resp) {
+                            return resp.json()
+                        })
+                        .then(function (data) {
+                            console.log(data)
+                            renderWeather(data)
+                        })
+                })
         }
     }
     $("#search-btn").on("click", function (e) {
@@ -51,14 +51,15 @@ $(function () {
         userSearch = $('#input-search').val()
         handleNewSearch(userSearch)
         $('#input-search').val('')
-        let title = $('<h2>').text(`Five Day Forecast`)
-        const fiveDayContainer = $('#five-day-div')
+        
+        // let title = $('<h2>').text(`Five Day Forecast`)
+        // const fiveDayContainer = $('#five-day-div')
 
-        // Check if the title has already been added
-        if (fiveDayContainer.children('h2').length === 0) {
-            let title = $('<h2>').text('Five Day Forecast');
-            fiveDayContainer.append(title);
-        }
+        // // Check if the title has already been added
+        // if (fiveDayContainer.children('h2').length === 0) {
+        //     let title = $('<h2>').text('Five Day Forecast');
+        //     fiveDayContainer.append(title);
+        // }
 
     });
 
@@ -78,14 +79,21 @@ $(function () {
         // Append the elements to a container in the HTML
         resultsContainer.empty()
         resultsContainer.append(title, city, icon, date, temp, humidity, windSpeed)
-        
+
     }
 
     function renderFiveDay(data) {
+
         let title = $('<h2>').text(`Five Day Forecast`)
         const fiveDayContainer = $('#five-day-div')
+        fiveDayContainer.empty()
+        if (fiveDayContainer.children('h2').length === 0) {
+            let title = $('<h2>').text('Five Day Forecast');
+            fiveDayContainer.append(title);
+        }
 
-        for (let i = 0; i < data.list.length; i+=8) {
+
+        for (let i = 0; i < data.list.length; i += 8) {
             let dayContainer = $('<div>').attr('id', 'day-container' + i)
             let date = $('<p>').text(`Date: ${dayjs.unix(data.list[i].dt).format("dddd-MM-DD-YY")}`);
             let icon = $('<img>').attr('src', `https://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png`);
@@ -95,7 +103,7 @@ $(function () {
 
             dayContainer.append(icon, date, temp, humidity, windSpeed)
             fiveDayContainer.append(dayContainer)
-            
+
         }
 
     }
