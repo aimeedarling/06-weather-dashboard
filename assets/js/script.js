@@ -65,10 +65,11 @@ $(function () {
 
 
     handleNewSearch()
-
+    let title = $('<h2 id="title">').text(`Current Weather`);
     const resultsContainer = $('#current-weather-div')
+    resultsContainer.append(title)
+
     function renderWeather(weather) {
-        let title = $('<h2 id="title">').text(`Current Weather`);
         let city = $('<h3 id="city">').text(`City: ${weather.name}`);
         let date = $('<p>').text(`Date: ${dayjs.unix(weather.dt).format("MM-DD-YY")}`);
         let icon = $('<img>').attr('src', `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`);
@@ -78,7 +79,7 @@ $(function () {
 
         // Append the elements to a container in the HTML
         resultsContainer.empty()
-        resultsContainer.append(title, city, icon, date, temp, humidity, windSpeed)
+        resultsContainer.append(city, icon, date, temp, humidity, windSpeed)
 
     }
 
