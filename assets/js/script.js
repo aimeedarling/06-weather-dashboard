@@ -51,6 +51,14 @@ $(function () {
         userSearch = $('#input-search').val()
         handleNewSearch(userSearch)
         $('#input-search').val('')
+        let title = $('<h2>').text(`Five Day Forecast`)
+        const fiveDayContainer = $('#five-day-div')
+
+        // Check if the title has already been added
+        if (fiveDayContainer.children('h2').length === 0) {
+            let title = $('<h2>').text('Five Day Forecast');
+            fiveDayContainer.append(title);
+        }
 
     });
 
@@ -76,12 +84,6 @@ $(function () {
     function renderFiveDay(data) {
         let title = $('<h2>').text(`Five Day Forecast`)
         const fiveDayContainer = $('#five-day-div')
-        console.log(data)
-        // Check if the title has already been added
-        if (fiveDayContainer.children('h2').length === 0) {
-            let title = $('<h2>').text('Five Day Forecast');
-            fiveDayContainer.append(title);
-        }
 
         for (let i = 0; i < data.list.length; i+=8) {
             let dayContainer = $('<div>').attr('id', 'day-container' + i)
